@@ -16,7 +16,7 @@ export default class Card extends CardSpec<Props, State> {
 
     render() {
         const _props = this.props;
-        return (<div {...CommonUtil.addId(_props)} className={CommonUtil.addClassName(_props, "card")}>{_props.children}</div>);
+        return (<div {...CommonUtil.addEventProps(_props)} {...CommonUtil.addId(_props)} className={CommonUtil.addClassName(_props, "card")}>{_props.children}</div>);
     }
 
 }
