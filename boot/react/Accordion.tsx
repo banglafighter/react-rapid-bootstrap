@@ -3,7 +3,7 @@ import {CommonUtil} from "react-boot-spec";
 
 
 interface Props extends AccordionProps {
-
+    key?: any
 }
 
 class State implements BootstrapUIState {
@@ -30,8 +30,12 @@ export default class Accordion extends AccordionSpec<Props, State> {
             singleExpandId = "top" + randomId
             bodyAttr = {"data-bs-parent": "#" + singleExpandId}
         }
+        let key: any = "key" + randomId
+        if (_props.key) {
+            key = _props.key
+        }
         return (
-            <div key={"key" + randomId}
+            <div key={key}
                 {...CommonUtil.addId(_props, singleExpandId)}
                  className={CommonUtil.addClassName(_props, defaultClass)}>
                 {_props.items.map((accordion: any, index: any) => (
